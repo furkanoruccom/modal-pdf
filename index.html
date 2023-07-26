@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ipages</title>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="min_version/ipages.min.css">
+	<!-- /end css -->
+	<style>
+		.flip-window {
+			height: 100vh;
+			width: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+
+			/* opacity: 0;
+			visibility: hidden; */
+			display: none;
+			transition: all 0.4s;
+			padding-bottom: 200px !important;
+
+		}
+
+		.flip-window .book-close {
+			height: 45px;
+			width: 45px;
+			position: absolute;
+			border: none;
+			background-color: white;
+			right: 20px;
+			top: 20px;
+			border-radius: 50%;
+			z-index: 1;
+		}
+
+		.ipgs-control-share,
+		.ipgs-control-outline,
+		.ipgs-control-sound,
+		.ipgs-control-zoom-in,
+		.ipgs-control-zoom-out {
+			display: none;
+		}
+
+	</style>
+</head>
+
+<body>
+	<!-- Button trigger modal -->
+	<button onclick="flipOpen()" style="margin-top: 300px;">
+		open pdf
+	</button>
+
+
+
+	<div class="flip-window">
+		<button class="book-close">x</button>
+		<div class="reset" style="height: 100vh; width: 100%;">
+
+		</div>
+
+	</div>
+
+
+
+
+
+	<!-- scripts-section -->
+	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="min_version/pdf.min.js"></script>
+	<script type="text/javascript" src="min_version/jquery.ipages.min.js"></script>
+	<!-- /end scripts-section -->
+
+	<script>
+
+
+
+		function flipOpen() {
+
+			$(".flip-window").css("display", "block");
+			$(".reset").html(`
+			 <div class="ipgs-flipbook" style="height:92%;">
+				<div data-image="assets/images/anyridge/anyridge-01.jpg"></div>
+				<div data-image="assets/images/anyridge/anyridge-02.jpg"></div>
+				<div data-image="assets/images/anyridge/anyridge-03.jpg"></div>
+				<div data-image="assets/images/anyridge/anyridge-04.jpg"></div>
+				<div data-image="assets/images/anyridge/anyridge-05.jpg"></div>
+				<div data-image="assets/images/anyridge/anyridge-06.jpg"></div>
+				<div data-image="assets/images/anyridge/anyridge-07.jpg"></div>
+				<div data-image="assets/images/anyridge/anyridge-08.jpg"></div>
+				<div data-image="assets/images/anyridge/anyridge-09.jpg"></div>
+				<div data-image="assets/images/anyridge/anyridge-10.jpg"></div>
+			`);
+
+			$('.ipgs-flipbook').ipages();
+		}
+		function flipClose() {
+
+			$(".flip-window").css("display", "none");
+			$('.reset').empty();
+
+
+		}
+
+
+		$(".book-close").click(function (e) {
+			flipClose();
+		});
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+
+
+</html>
