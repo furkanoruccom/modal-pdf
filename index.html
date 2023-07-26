@@ -17,13 +17,9 @@
 			top: 0;
 			left: 0;
 			background-color: rgba(0, 0, 0, 0.5);
-
-			/* opacity: 0;
-			visibility: hidden; */
 			display: none;
 			transition: all 0.4s;
 			padding-bottom: 200px !important;
-
 		}
 
 		.flip-window .book-close {
@@ -38,14 +34,13 @@
 			z-index: 1;
 		}
 
-		.ipgs-control-share,
+		/* .ipgs-control-share,
 		.ipgs-control-outline,
 		.ipgs-control-sound,
 		.ipgs-control-zoom-in,
 		.ipgs-control-zoom-out {
 			display: none;
-		}
-
+		} */
 	</style>
 </head>
 
@@ -95,30 +90,42 @@
 				<div data-image="assets/images/anyridge/anyridge-09.jpg"></div>
 				<div data-image="assets/images/anyridge/anyridge-10.jpg"></div>
 			`);
+			var options = {
+				bookEngine: 'TwoPageFlip', // Sayfa dönüşü efekti
+				responsive: true,
+				autoFit: true,
+				perspective: 5000,
+				toolbarControls: [
+					{ type: 'share', active: false, title: 'share', icon: 'ipgs-icon-share', optional: false },
+					{ type: 'outline', active: false, title: 'toggle outline/bookmarks', icon: 'ipgs-icon-outline', optional: false },
+					{ type: 'thumbnails', active: true, title: 'toggle thumbnails', icon: 'ipgs-icon-thumbnails', optional: false },
+					{ type: 'gotofirst', active: true, title: 'goto first page', icon: 'ipgs-icon-gotofirst', optional: false },
+					{ type: 'prev', active: false, title: 'prev page', icon: 'ipgs-icon-prev', optional: false },
+					{ type: 'pagenumber', active: true, title: 'goto page number', icon: 'ipgs-icon-pagenumber', optional: false },
+					{ type: 'next', active: false, title: 'next page', icon: 'ipgs-icon-next', optional: false },
+					{ type: 'gotolast', active: true, title: 'goto last page', icon: 'ipgs-icon-gotolast', optional: false },
+					{ type: 'zoom-in', active: false, title: 'zoom in', icon: 'ipgs-icon-zoom-in', optional: false },
+					{ type: 'zoom-out', active: false, title: 'zoom out', icon: 'ipgs-icon-zoom-out', optional: false },
+					{ type: 'zoom-default', active: true, title: 'zoom default', icon: 'ipgs-icon-zoom-default', optional: true },
+					{ type: 'optional', active: true, title: 'optional', icon: 'ipgs-icon-optional', optional: false },
+					{ type: 'fullscreen', active: true, title: 'toggle fullscreen', icon: 'ipgs-icon-fullscreen', optional: true },
+					{ type: 'sound', active: false, title: 'turn on/off flip sound', icon: 'ipgs-icon-sound', optional: true },
+					{ type: 'download', active: false, title: 'download pdf', icon: 'ipgs-icon-download', optional: true },
+				],
+			};
 
-			$('.ipgs-flipbook').ipages();
+			$('.ipgs-flipbook').ipages(options);
 		}
 		function flipClose() {
 
 			$(".flip-window").css("display", "none");
 			$('.reset').empty();
-
-
 		}
 
 
 		$(".book-close").click(function (e) {
 			flipClose();
 		});
-
-
-
-
-
-
-
-
-
 
 
 	</script>
